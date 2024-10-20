@@ -1,0 +1,65 @@
+--Codé par : BENSUMAIDEA Maged et TIABI Reda
+
+
+-------------------------------- LIBRARIES -----------------------------
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+-------------------------------- ENTITY ---------------------------
+entity calcule_freq is
+    port(
+        -- -- entrees &  sorties
+        clk_1                       : in std_logic;
+        in_freq_anemometre         : in std_logic;
+        raz_n                     : in std_logic;
+       
+        out_freq_calcule        : out std_logic_vector( 7 downto 0)
+        );
+end calcule_freq ;
+
+--------------------------------- ARCHITRECTURE ------------------------
+architecture arch of calcule_freq is
+    signal signal_1 : std_logic_vector( 7 downto 0);
+    signal signal_2 : std_logic_vector( 7 downto 0);
+    signal signal_3 : std_logic_vector( 7 downto 0);
+begin
+     process( clk_1, in_freq_anemometre, raz_n)
+    
+     begin
+         if raz_n='0' then
+            signal_1 <= (others => '0');
+         elsif rising_edge(in_freq_anemometre) then
+            if clk_1='1' then
+                signal_1 <= signal_1+1;
+            else signal_1 <= (others => '0');
+            end if;
+        end if;
+       
+    end process;
+       
+    process( clk_1, in_freq_anemometre, raz_n)
+    begin
+         if raz_n='0' then
+            signal_2 <= (others => '0');
+         elsif falling_edge(in_freq_anemometre) then
+            if clk_1='1' then
+                signal_2 <= signal_2+1;
+            else signal_2 <= (others => '0');
+           end if;
+         end if;
+    end process;
+       
+    process(clk_1, raz_n)
+    begin
+         if raz_n='0' then
+            signal_3 <= (others => '0');
+         elsif falling_edge(clk_1) then
+            signal_3 <= signal_1+signal_2;
+         end if;
+    end process;
+    out_freq_calcule <= signal_3;
+end arch;
+
