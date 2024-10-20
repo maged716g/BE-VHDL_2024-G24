@@ -1,0 +1,96 @@
+--Codé par : BENSUMAIDEA Maged et TIABI Reda
+
+
+--gestion
+-------------------------------- LIBRARIES -----------------------------
+
+library ieee;
+Use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_unsigned.all;
+-------------------------------- ENTITY ----------------------------
+
+entity port_map_anem is
+    port(
+        -- entree
+        clk_50M                : in std_logic;
+        raz_n                 : in std_logic;
+        in_freq_anemometre     : in std_logic;
+        continu                : in std_logic;
+        start_stop            : in std_logic;
+        -- sortie
+        data_valid             : out std_logic;
+        data_anemometre     : out std_logic_vector(7 downto 0)
+    );
+end entity;
+
+--------------------------------- ARCHITRECTURE ------------------------
+
+architecture arch of port_map_anem is
+    signal signal_clk_1: std_logic;
+    signal signal_out_freq_calcule : std_logic_vector(7 downto 0);
+    signal signal_data_valid : std_logic;
+    signal signal_data_anemometre : std_logic_vector(7 downto 0);
+---------------------------------------------------------------------------------------
+component diviseur
+    port(
+        -- entree
+        clk_50M        : in std_logic;
+        raz_n         : in std_logic;
+        -- sortie
+        clk_1        : out std_logic
+        );
+end component ;
+---------------------------------------------------------------------------------------
+component calcule_freq
+    port(
+        -- entree
+        clk_1                : in std_logic;
+        in_freq_anemometre     : in std_logic;
+        raz_n                 : in std_logic;
+        -- sortie
+        out_freq_calcule    : out std_logic_vector( 7 downto 0)
+        );
+end component ;   
+---------------------------------------------------------------------------------------   
+component gestion_data_anem
+     port(
+    clk_50M            : in std_logic;
+    continu                : in std_logic;
+    raz_n                : in std_logic;
+    start_stop            : in std_logic;
+    out_freq_calcule    : in std_logic_vector(7 downto 0);
+    data_valid             : out std_logic;
+    data_anemometre     : out std_logic_vector(7 downto 0)
+    );
+end component;
+---------------------------------------------------------------------------------------
+begin
+    
+    DivFreq0 : diviseur
+    port map(    clk_50M    =>    clk_50M,
+                raz_n    =>    raz_n,
+                clk_1    =>    signal_clk_1
+            );
+    
+    Frequence_calcule0 : calcule_freq
+    port map(    clk_1                =>    signal_clk_1,
+                in_freq_anemometre    =>    in_freq_anemometre,
+                raz_n                =>    raz_n,
+                out_freq_calcule    =>    signal_out_freq_calcule
+            );
+    
+    gestion_data_anemometre0 : gestion_data_anem
+    port map(    clk_50M => clk_50M,
+            out_freq_calcule    =>    signal_out_freq_calcule,
+                continu                =>    continu,
+                raz_n                =>    raz_n,
+                start_stop            =>    start_stop,
+                data_valid            =>    signal_data_valid,
+                data_anemometre        =>    signal_data_anemometre
+            );
+
+data_valid        <=    signal_data_valid;
+data_anemometre    <=    signal_data_anemometre;
+    
+end arch;
