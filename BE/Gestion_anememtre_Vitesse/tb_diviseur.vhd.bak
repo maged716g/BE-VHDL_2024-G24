@@ -1,0 +1,63 @@
+-- Testbench pour le diviseur de fréquence
+-- Codé par : BENSUMAIDEA Maged et TIABI Reda
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+-- Entité du testbench
+entity tb_diviseur is
+end tb_diviseur;
+
+architecture sim of tb_diviseur is
+
+    -- Signaux d'entrée du testbench
+    signal clk_50M  : std_logic := '0';  -- Horloge de 50 MHz
+    signal raz_n    : std_logic := '0';  -- Signal de reset actif bas
+
+    -- Signaux de sortie à observer
+    signal clk_1    : std_logic;  -- Horloge divisée à 1 Hz
+
+    -- Constante pour la période d'horloge de 50 MHz
+    constant CLK_PERIOD : time := 20 ns;  -- Période de 50 MHz (20 ns)
+    
+begin
+
+    -- Instanciation du DUT (Device Under Test) : le diviseur de fréquence
+    UUT: entity work.diviseur
+        port map(
+            clk_50M => clk_50M,
+            raz_n   => raz_n,
+            clk_1   => clk_1
+        );
+
+    -- Génération de l'horloge 50 MHz
+    clk_process : process
+    begin
+        while true loop
+            clk_50M <= '0';
+            wait for CLK_PERIOD / 2;
+            clk_50M <= '1';
+            wait for CLK_PERIOD / 2;
+        end loop;
+    end process;
+
+    -- Stimuli d'entrée : génération des conditions de test
+    stim_proc: process
+    begin
+        -- Initialisation : Reset activé
+        raz_n <= '0';  -- Activer le reset
+        wait for 100 ns;
+        
+        -- Désactivation du reset
+        raz_n <= '1';  -- Désactiver le reset
+        wait for 10 us;
+
+        -- Simulation pour un long temps pour observer plusieurs cycles du signal clk_1 (1 Hz)
+        wait for 500 ms;  -- Attendre suffisamment pour observer les changements dans clk_1
+        
+        -- Fin de simulation
+        wait;
+    end process;
+
+end architecture sim;

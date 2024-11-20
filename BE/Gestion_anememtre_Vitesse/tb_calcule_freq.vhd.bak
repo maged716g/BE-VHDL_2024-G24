@@ -1,0 +1,79 @@
+-- Testbench pour l'entité calcule_freq
+-- Codé par : BENSUMAIDEA Maged et TIABI Reda
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+-- Entité du testbench
+entity tb_calcule_freq is
+end tb_calcule_freq;
+
+architecture sim of tb_calcule_freq is
+
+    -- Signaux d'entrée du testbench
+    signal clk_1            : std_logic := '0';  -- Horloge de 1 Hz
+    signal in_freq_anemometre : std_logic := '0';  -- Signal de fréquence de l'anémomètre
+    signal raz_n            : std_logic := '0';  -- Signal de reset actif bas
+
+    -- Signaux de sortie à observer
+    signal out_freq_calcule : std_logic_vector(7 downto 0);  -- Fréquence calculée
+
+    -- Constantes pour les périodes d'horloge
+    constant CLK_1_PERIOD   : time := 1 sec;     -- Période de l'horloge 1 Hz (1 seconde)
+    constant FREQ_ANEM_PERIOD : time := 100 ms;  -- Période du signal anémomètre (10 Hz par exemple)
+
+begin
+
+    -- Instanciation du DUT (Device Under Test) : le module calcule_freq
+    UUT: entity work.calcule_freq
+        port map(
+            clk_1            => clk_1,
+            in_freq_anemometre => in_freq_anemometre,
+            raz_n            => raz_n,
+            out_freq_calcule => out_freq_calcule
+        );
+
+    -- Génération de l'horloge 1 Hz
+    clk_1_process : process
+    begin
+        while true loop
+            clk_1 <= '0';
+            wait for CLK_1_PERIOD / 2;
+            clk_1 <= '1';
+            wait for CLK_1_PERIOD / 2;
+        end loop;
+    end process;
+
+    -- Génération du signal de fréquence d'anémomètre
+    stim_anemometre: process
+    begin
+        -- Initialisation
+        in_freq_anemometre <= '0';
+        wait for 100 ns;
+
+        -- Simulation du signal d'anémomètre à une fréquence de 10 Hz (période de 100 ms)
+        while true loop
+            in_freq_anemometre <= '1';
+            wait for FREQ_ANEM_PERIOD / 2;  -- 50 ms
+            in_freq_anemometre <= '0';
+            wait for FREQ_ANEM_PERIOD / 2;  -- 50 ms
+        end loop;
+    end process;
+
+    -- Stimuli d'entrée : gestion du reset et observation des résultats
+    stim_proc: process
+    begin
+        -- Initialisation : Reset activé
+        raz_n <= '0';  -- Activer le reset
+        wait for 100 ns;
+        
+        -- Désactivation du reset
+        raz_n <= '1';  -- Désactiver le reset
+        wait for 2 sec;  -- Laisser le système fonctionner pendant 2 secondes
+
+        -- Fin de simulation après quelques cycles
+        wait;
+    end process;
+
+end architecture sim;

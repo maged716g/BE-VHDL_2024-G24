@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Oct 22 15:13:56 2024
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : Fonction1_Vitesse_anememtre
+Top-level Entity Name : anemo_block
+Family : Cyclone IV E
+Total logic elements : 2,038
+    Total combinational functions : 1,848
+    Dedicated logic registers : 1,034
+Total registers : 1034
+Total pins : 2
+Total virtual pins : 0
+Total memory bits : 171,264
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

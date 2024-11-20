@@ -1,0 +1,34 @@
+
+module SOPC_verin (
+	clk_clk,
+	gestion_verin_0_data_in_adc_beginbursttransfer,
+	gestion_verin_0_pwm_out_writeresponsevalid_n,
+	gestion_verin_0_sens_out_writeresponsevalid_n,
+	pio_0_external_connection_export,
+	pio_1_external_connection_export,
+	gestion_bp_0_out_bip_writeresponsevalid_n,
+	gestion_bp_0_bp_babord_beginbursttransfer,
+	gestion_bp_0_bp_stby_beginbursttransfer,
+	gestion_bp_0_bp_tribord_beginbursttransfer,
+	gestion_bp_0_lesbabord_writeresponsevalid_n,
+	gestion_bp_0_ledstby_writeresponsevalid_n,
+	gestion_verin_0_clk_adc_writeresponsevalid_n,
+	gestion_verin_0_cs_n_writeresponsevalid_n,
+	gestion_bp_0_ledtribord_writeresponsevalid_n);	
+
+	input		clk_clk;
+	input		gestion_verin_0_data_in_adc_beginbursttransfer;
+	output		gestion_verin_0_pwm_out_writeresponsevalid_n;
+	output		gestion_verin_0_sens_out_writeresponsevalid_n;
+	input	[7:0]	pio_0_external_connection_export;
+	output	[7:0]	pio_1_external_connection_export;
+	output		gestion_bp_0_out_bip_writeresponsevalid_n;
+	input		gestion_bp_0_bp_babord_beginbursttransfer;
+	input		gestion_bp_0_bp_stby_beginbursttransfer;
+	input		gestion_bp_0_bp_tribord_beginbursttransfer;
+	output		gestion_bp_0_lesbabord_writeresponsevalid_n;
+	output		gestion_bp_0_ledstby_writeresponsevalid_n;
+	output		gestion_verin_0_clk_adc_writeresponsevalid_n;
+	output		gestion_verin_0_cs_n_writeresponsevalid_n;
+	output		gestion_bp_0_ledtribord_writeresponsevalid_n;
+endmodule

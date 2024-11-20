@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Nov 18 11:33:32 2024
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : verin
+Top-level Entity Name : NMEA_Interface_T
+Family : Cyclone IV E
+Total logic elements : 1,021
+    Total combinational functions : 563
+    Dedicated logic registers : 800
+Total registers : 800
+Total pins : 5
+Total virtual pins : 0
+Total memory bits : 73,728
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

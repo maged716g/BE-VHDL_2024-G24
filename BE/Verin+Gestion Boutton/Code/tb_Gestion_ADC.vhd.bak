@@ -1,0 +1,84 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+-- ENTITY du banc de test
+entity tb_Gestion_ADC is
+end tb_Gestion_ADC;
+
+-- ARCHITECTURE du banc de test
+architecture Behavioral of tb_Gestion_ADC is
+
+    -- Signaux de simulation pour connecter à l'instance du DUT (Design Under Test)
+    signal clk         : std_logic := '0';  -- Horloge
+    signal Raz_n       : std_logic := '0';  -- Reset
+    signal Data_in     : std_logic := '0';  -- Entrée de données (analogique simulée)
+    signal Cs_n        : std_logic;         -- Chip Select de l'ADC
+    signal Clk_adc     : std_logic;         -- Horloge de l'ADC
+    signal Angle_barre : std_logic_vector(11 downto 0); -- Sortie de l'ADC
+
+    -- Constantes pour la simulation
+    constant CLK_PERIOD : time := 20 ns; -- Période d'horloge à 50 MHz (1 période = 20 ns)
+
+begin
+
+    -- Génération de l'horloge
+    clk_process: process
+    begin
+        while True loop
+            clk <= '0';
+            wait for CLK_PERIOD / 2;
+            clk <= '1';
+            wait for CLK_PERIOD / 2;
+        end loop;
+    end process;
+
+    -- Instanciation du Design Under Test (DUT)
+    DUT: entity work.Gestion_ADC
+        port map (
+            clk         => clk,
+            Raz_n       => Raz_n,
+            Data_in     => Data_in,
+            Cs_n        => Cs_n,
+            Clk_adc     => Clk_adc,
+            Angle_barre => Angle_barre
+        );
+
+    -- Stimuli pour tester l'entité
+    stim_proc: process
+    begin
+        -- Initialisation : Reset actif
+        Raz_n <= '0';
+        Data_in <= '0';
+        wait for 100 ns;
+
+        -- Libération du reset
+        Raz_n <= '1';
+        wait for 100 ns;
+
+        -- Simuler des valeurs analogiques à travers Data_in
+        -- Cycle 1 : 1010_1101_0111 (exemple de données analogiques)
+        wait for 10 us;
+        Data_in <= '1';  -- Bit 1
+        wait for 1 us;    
+        Data_in <= '0';  -- Bit 0
+        wait for 1 us;    
+        Data_in <= '1';  -- Bit 1
+        wait for 1 us;
+        Data_in <= '0';  -- Bit 0
+        wait for 1 us;
+        -- Continue les autres bits selon le schéma
+
+        -- Attendre que la machine à états gère la conversion
+        wait for 100 us;  -- Attente pour que la conversion soit terminée
+
+        -- Affichage des résultats pour la sortie Angle_barre
+        assert Angle_barre /= (others => '0')
+        report "Test échoué : Angle_barre n'a pas reçu la donnée correcte."
+        severity error;
+
+        -- Fin de la simulation
+        wait;
+    end process;
+
+end Behavioral;

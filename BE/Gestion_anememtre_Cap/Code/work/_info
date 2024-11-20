@@ -1,0 +1,99 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/intelFPGA_lite/18.0/BE/Cap
+Edivfreq_de_cap
+Z1 w1731399742
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z4 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z7 8C:/intelFPGA_lite/18.0/BE/Cap/DivFreq_de_cap.vhd
+Z8 FC:/intelFPGA_lite/18.0/BE/Cap/DivFreq_de_cap.vhd
+l0
+L9
+VjH]iO;ZJ0DhI2mBNlP0CI1
+!s100 aW2LTXIB5Y7]DXXTLWoHF3
+Z9 OV;C;10.5b;63
+32
+Z10 !s110 1731400855
+!i10b 1
+Z11 !s108 1731400855.000000
+Z12 !s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.0/BE/Cap/DivFreq_de_cap.vhd|
+Z13 !s107 C:/intelFPGA_lite/18.0/BE/Cap/DivFreq_de_cap.vhd|
+!i113 1
+Z14 o-work work
+Z15 tExplicit 1 CvgOpt 0
+Aarch
+R2
+R3
+R4
+R5
+R6
+Z16 DEx4 work 14 divfreq_de_cap 0 22 jH]iO;ZJ0DhI2mBNlP0CI1
+l25
+L20
+VGVbIbYc[NAYW>`4h=ZcfQ3
+!s100 R6NUM<SP;ILAH@^d;A@@]3
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 1
+R14
+R15
+Etb_divfreq_de_cap
+Z17 w1731400714
+R4
+R5
+R6
+R0
+Z18 8C:/intelFPGA_lite/18.0/BE/Cap/tb_DivFreq_de_cap.vhd
+Z19 FC:/intelFPGA_lite/18.0/BE/Cap/tb_DivFreq_de_cap.vhd
+l0
+L6
+V<CboZ95zOF2WbU5LGk<K:0
+!s100 B0KcUz6_USnX11j9Cj4g01
+R9
+32
+Z20 !s110 1731400856
+!i10b 1
+R11
+Z21 !s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.0/BE/Cap/tb_DivFreq_de_cap.vhd|
+Z22 !s107 C:/intelFPGA_lite/18.0/BE/Cap/tb_DivFreq_de_cap.vhd|
+!i113 1
+R14
+R15
+Atest
+R2
+R3
+R16
+R4
+R5
+R6
+Z23 DEx4 work 17 tb_divfreq_de_cap 0 22 <CboZ95zOF2WbU5LGk<K:0
+l20
+L10
+V5A3RBd`NeAJI8j:NXJeb=1
+!s100 ;PiPf3Q=UCVS^C^ZSF54c1
+R9
+32
+R20
+!i10b 1
+R11
+R21
+R22
+!i113 1
+R14
+R15

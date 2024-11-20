@@ -1,0 +1,66 @@
+#include "sys/alt_stdio.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "system.h"
+#include "altera_avalon_pio_regs.h" // pour éviter de renseigner les adresses physiques des périphériques
+#include "unistd.h" 				// pour la fonction délai
+
+#define CONFIG_REG (volatile int *) AVALON_MESURE_FREQ_0_BASE
+#define CODE_REG (volatile int *) (AVALON_MESURE_FREQ_0_BASE+4)
+
+// Masques pour les bits du registre "config"
+#define START_STOP_BIT  (1 << 2) // b2
+#define CONTINU_BIT     (1 << 1) // b1
+#define RAZ_N_BIT       (1 << 0) // b0
+
+int main() {
+    printf("System Initialized.\n");
+
+    int mode = 0;  // Variable pour stocker le mode (0 = manuel, 1 = continu)
+    int start_stop = 0;
+    int raz_n = 1;
+    int freq_measure;
+
+    while (1) {
+        printf("Press 0 for manual mode (start/stop) or 1 for continuous mode: ");
+        scanf("%d", &mode);
+
+        // Configurer le registre en fonction du mode sélectionné
+        if (mode == 1) {
+            // Mode continu
+            IOWR(CONFIG_REG, 0, CONTINU_BIT | RAZ_N_BIT);  // Activer le mode continu et raz_n
+            printf("Continuous mode selected.\n");
+        } else {
+            // Mode manuel avec start/stop
+            IOWR(CONFIG_REG, 0, RAZ_N_BIT);  // RAZ actif, continu désactivé, prêt à utiliser start/stop
+            printf("Manual mode selected. Press 1 to start measurement.\n");
+            scanf("%d", &start_stop);  // Lire l'entrée pour démarrer/arrêter
+
+            if (start_stop == 1) {
+                IOWR(CONFIG_REG, 0, START_STOP_BIT | RAZ_N_BIT);  // Démarrer la mesure
+                printf("Measurement started...\n");
+                usleep(1000000);  // Attendre 1 seconde pour la mesure
+                IOWR(CONFIG_REG, 0, RAZ_N_BIT);  // Stopper la mesure
+                printf("Measurement stopped.\n");
+            } else {
+                printf("Invalid input. Restarting...\n");
+                continue;
+            }
+        }
+
+        // Lire la fréquence mesurée
+        freq_measure = IORD(CODE_REG, 0) & 0xFF;  // Extraire la fréquence (bits 7..0)
+        int valid = (IORD(CODE_REG, 0) >> 9) & 0x1;  // Vérifier si les données sont valides (bit 9)
+
+        if (valid) {
+            printf("Measured frequency: %d Hz\n", freq_measure);
+        } else {
+            printf("No valid data yet. Try again.\n");
+        }
+
+        // Réinitialiser pour une nouvelle mesure
+        usleep(1000000);  // Attendre 1 seconde avant la prochaine interaction
+    }
+
+    return 0;
+}

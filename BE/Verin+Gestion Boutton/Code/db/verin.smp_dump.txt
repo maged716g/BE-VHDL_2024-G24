@@ -1,0 +1,8 @@
+
+State Machine - |NMEA_Interface_T|tx_state
+Name tx_state.PAUSE tx_state.STOP_BIT tx_state.DATA_BITS tx_state.START_BIT tx_state.IDLE 
+tx_state.IDLE 0 0 0 0 0 
+tx_state.START_BIT 0 0 0 1 1 
+tx_state.DATA_BITS 0 0 1 0 1 
+tx_state.STOP_BIT 0 1 0 0 1 
+tx_state.PAUSE 1 0 0 0 1 

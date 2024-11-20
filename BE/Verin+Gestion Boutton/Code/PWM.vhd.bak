@@ -1,0 +1,67 @@
+--Codé par : BENSUMAIDEA Maged et TAIBI Reda
+
+-------------------------------- LIBRARIES -----------------------------
+-- On inclut les bibliothèques VHDL
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+
+
+-------------------------------- ENTITY ---------------------------
+-- Déclaration de notre entité pwm 
+entity PWM is
+	port (
+		clk, Raz_n : in std_logic;
+		freq, duty : in std_logic_vector (15 downto 0);
+		pwm : out std_logic
+		);
+end entity;
+
+
+--------------------------------- ARCHITRECTURE ------------------------
+architecture arch_pwm of PWM is
+	signal comp : std_logic_vector (15 downto 0);
+	signal pwm_intern : std_logic;
+
+
+begin
+
+	process (clk, Raz_n)
+	begin
+		if Raz_n = '0' then
+			comp <= (others => '0');
+		elsif clk'event and clk = '1' then
+			if comp >= freq then
+				comp <= (others => '0');
+			else
+				comp <= comp + 1;
+			end if;
+		end if;
+	end process ;
+	--if Enable_pw = '1' then
+	
+	--end if;
+		
+
+   process (clk, Raz_n)
+	begin
+		if Raz_n = '0' then
+			pwm_intern <= '0';
+		elsif clk'event and clk = '1' then
+			if comp >= duty then
+				pwm_intern <= '0';
+			else
+				pwm_intern <= '1';
+			end if;
+		end if;
+	end process ;
+--if Enable_pw = '1' then
+	
+	
+	pwm <= pwm_intern;
+--end if;
+end arch_pwm;
+
+
+

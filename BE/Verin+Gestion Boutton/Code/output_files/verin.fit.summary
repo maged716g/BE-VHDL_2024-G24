@@ -1,0 +1,16 @@
+Fitter Status : Successful - Mon Nov 18 11:33:39 2024
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : verin
+Top-level Entity Name : NMEA_Interface_T
+Family : Cyclone IV E
+Device : EP4CE22F17C6
+Timing Models : Final
+Total logic elements : 1,003 / 22,320 ( 4 % )
+    Total combinational functions : 564 / 22,320 ( 3 % )
+    Dedicated logic registers : 800 / 22,320 ( 4 % )
+Total registers : 800
+Total pins : 5 / 154 ( 3 % )
+Total virtual pins : 0
+Total memory bits : 73,728 / 608,256 ( 12 % )
+Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

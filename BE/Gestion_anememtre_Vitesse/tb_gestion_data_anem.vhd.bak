@@ -1,0 +1,97 @@
+-- Testbench pour l'entité gestion_data_anem
+-- Codé par : BENSUMAIDEA Maged et TIABI Reda
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+
+entity tb_gestion_data_anem is
+end tb_gestion_data_anem;
+
+architecture sim of tb_gestion_data_anem is
+
+    -- Signaux pour simuler les entrées
+    signal clk_50M        : std_logic := '0';                      -- Horloge 50 MHz
+    signal continu        : std_logic := '0';                      -- Signal "continu"
+    signal raz_n          : std_logic := '0';                      -- Signal de reset
+    signal start_stop     : std_logic := '0';                      -- Signal de démarrage/arrêt
+    signal out_freq_calcule : std_logic_vector(7 downto 0) := (others => '0');  -- Fréquence calculée (entrée)
+
+    -- Signaux pour observer les sorties
+    signal data_valid     : std_logic;                             -- Indicateur de données valides
+    signal data_anemometre : std_logic_vector(7 downto 0);         -- Données de l'anémomètre
+
+    -- Constante pour la période d'horloge
+    constant CLK_50M_PERIOD : time := 20 ns;  -- Période de 50 MHz (20 ns)
+
+begin
+
+    -- Instanciation du DUT (Device Under Test) : le module gestion_data_anem
+    UUT: entity work.gestion_data_anem
+        port map(
+            clk_50M        => clk_50M,
+            continu        => continu,
+            raz_n          => raz_n,
+            start_stop     => start_stop,
+            out_freq_calcule => out_freq_calcule,
+            data_valid     => data_valid,
+            data_anemometre => data_anemometre
+        );
+
+    -- Génération de l'horloge 50 MHz
+    clk_50M_process : process
+    begin
+        while true loop
+            clk_50M <= '0';
+            wait for CLK_50M_PERIOD / 2;
+            clk_50M <= '1';
+            wait for CLK_50M_PERIOD / 2;
+        end loop;
+    end process;
+
+    -- Stimuli d'entrée : tester les différents scénarios
+    stim_proc : process
+    begin
+        -- Initialisation des signaux
+        raz_n <= '0';   -- Reset actif bas
+        continu <= '0';  -- Pas en mode continu
+        start_stop <= '0'; -- Pas démarré
+        out_freq_calcule <= "00000000"; -- Fréquence nulle au départ
+
+        -- Attendre quelques cycles d'horloge
+        wait for 100 ns;
+
+        -- Désactivation du reset
+        raz_n <= '1';  -- Désactiver le reset
+        wait for 50 ns;
+
+        -- Test 1 : Mode continu, mise à jour des données à chaque cycle
+        continu <= '1';    -- Activation du mode continu
+        out_freq_calcule <= "00010010";  -- Simulation d'une fréquence calculée (18 en décimal)
+        wait for 100 ns;
+        
+        out_freq_calcule <= "00101011";  -- Mise à jour avec une nouvelle fréquence (43 en décimal)
+        wait for 100 ns;
+
+        -- Test 2 : Arrêt du mode continu
+        continu <= '0';
+        start_stop <= '0';  -- Pas de mise à jour des données
+        wait for 100 ns;
+
+        -- Test 3 : Mode start/stop
+        start_stop <= '1';   -- Activation du mode start/stop
+        out_freq_calcule <= "00111100";  -- Mise à jour avec une nouvelle fréquence (60 en décimal)
+        wait for 100 ns;
+
+        -- Test 4 : Test du reset
+        raz_n <= '0';   -- Réactivation du reset
+        wait for 50 ns;
+        raz_n <= '1';   -- Désactivation du reset
+        wait for 100 ns;
+
+        -- Fin de la simulation
+        wait;
+    end process;
+
+end architecture sim;

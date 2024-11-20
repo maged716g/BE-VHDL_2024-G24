@@ -1,0 +1,6 @@
+15:47:56 **** Clean-only build of configuration Nios II for project avalon_anemo_bsp ****
+make clean 
+[BSP clean complete]
+
+15:47:56 Build Finished (took 820ms)
+

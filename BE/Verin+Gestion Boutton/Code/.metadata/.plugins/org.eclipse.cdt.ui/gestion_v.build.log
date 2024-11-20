@@ -1,0 +1,18 @@
+11:32:50 **** Incremental Build of configuration Nios II for project gestion_v ****
+make all 
+Info: Building ../gestion_v_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../gestion_v_bsp/
+[BSP build complete]
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc -xc -MP -MMD -c -I../gestion_v_bsp//HAL/inc -I../gestion_v_bsp/ -I../gestion_v_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world_small.o hello_world_small.c
+Info: Linking gestion_v.elf
+nios2-elf-g++  -T'../gestion_v_bsp//linker.x' -msys-crt0='../gestion_v_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../gestion_v_bsp/  -msmallc  -Wl,-Map=gestion_v.map   -Os -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o gestion_v.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert gestion_v.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x110a0 --timestamp 1731061098 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name SOPC_verin --quartus_project_dir "C:/Users/redat/Desktop/Verin" --jdi ../..//output_files/verin.jdi --sopcinfo C:/Users/redat/Desktop/Verin/software/gestion_v_bsp/../../SOPC_verin.sopcinfo
+Info: (gestion_v.elf) 3928 Bytes program size (code + initialized data).
+Info:                 15 KBytes free for stack + heap.
+Info: Creating gestion_v.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source gestion_v.elf >gestion_v.objdump
+[gestion_v build complete]
+
+11:32:52 Build Finished (took 1s.656ms)
+

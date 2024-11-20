@@ -1,0 +1,110 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity tb_gestion_anememtre is
+end entity;
+
+architecture beh of tb_gestion_anememtre is
+
+    signal clk_50M              : std_logic := '0';
+	 signal clk_1                :std_logic;
+    signal raz_n                : std_logic := '1';
+    signal in_freq_anemometre   : std_logic := '0';
+    signal continu              : std_logic := '0';
+    signal start_stop           : std_logic := '0';
+    signal data_valid           : std_logic;
+    signal data_anemometre      : std_logic_vector(7 downto 0);
+
+    constant clk_period : time := 20 ns;  
+    constant freq_anem_period : time := 10 ms; 
+
+    component port_map_anem is
+        port(
+            clk_50M              : in  std_logic;
+            raz_n                : in  std_logic;
+            in_freq_anemometre   : in  std_logic;
+            continu              : in  std_logic;
+            start_stop           : in  std_logic;
+            data_valid           : out std_logic;
+            data_anemometre      : out std_logic_vector(7 downto 0)
+        );
+    end component;
+	 
+	 
+	 component diviseur
+    port(
+        -- Entrees & sorties
+        clk_50M        : in std_logic;
+        raz_n         : in std_logic;
+       
+        clk_1        : out std_logic
+        );
+   end component ;
+
+
+begin
+    uut: port_map_anem
+        port map (
+            clk_50M              => clk_50M,
+            raz_n                => raz_n,
+            in_freq_anemometre   => in_freq_anemometre,
+            continu              => continu,
+            start_stop           => start_stop,
+            data_valid           => data_valid,
+            data_anemometre      => data_anemometre
+        );
+		  
+		 uut1: diviseur
+        port map (
+            clk_50M              => clk_50M,
+            raz_n                => raz_n,
+            clk_1                => clk_1
+        );
+
+    -- Clock generation 
+    clk_process :process
+    begin
+        while true loop
+            clk_50M <= '0';
+            wait for clk_period / 2;
+            clk_50M <= '1';
+            wait for clk_period / 2;
+        end loop;
+    end process;
+
+    --  frequency generation
+    anemometer_freq_gen: process
+    begin
+        while true loop
+            in_freq_anemometre <= '1';
+            wait for 10 ms;  -- Half the period (T/2) for a 50 Hz signal
+            in_freq_anemometre <= '0';
+            wait for 10 ms;
+        end loop;
+    end process;
+
+   
+    stim_proc: process
+    begin
+        
+        --raz_n <= '0';
+        --wait for 100 ns;
+        raz_n <= '1';
+        --wait for 100 ns;
+
+        
+        continu <= '0';  
+        start_stop <= '0';  
+
+       
+        --wait for 200 ms;  
+
+        
+        --continu <= '0';
+        --wait for 50 ns;
+
+        wait;
+    end process;
+
+end architecture beh;
