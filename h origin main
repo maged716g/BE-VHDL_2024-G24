@@ -1,0 +1,381 @@
+[33mcommit 2fe3c7fe4efa43a44fdd9986bdb1ea0e0ac3d09d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Votre Nom <votre.email@example.com>
+Date:   Sun Oct 20 21:24:26 2024 +0200
+
+    Suppression du fichier compteur
+
+[33mcommit 3cd4cfb421c87d69ffe197609748155573691f1f[m
+Author: Votre Nom <votre.email@example.com>
+Date:   Sun Oct 20 21:20:17 2024 +0200
+
+    Suppression du dossier Gestion_Anememtre
+
+[33mcommit 2245f70389351d75827a285b42608a439c491ddb[m
+Author: Votre Nom <votre.email@example.com>
+Date:   Sun Oct 20 21:17:57 2024 +0200
+
+    Ajout du dossier Verin
+
+[33mcommit d0b5bbac49fd11c6d4f8b46383f0ad5cf8a0dd55[m
+Author: Votre Nom <votre.email@example.com>
+Date:   Sun Oct 20 21:10:09 2024 +0200
+
+    Ajout du projet Projet_BE
+
+[33mcommit 87942407430b113bc2e8f3f388c1a85385d48a47[m
+Author: Votre Nom <votre.email@example.com>
+Date:   Sun Oct 20 20:23:37 2024 +0200
+
+    Ajout des dossiers Projet_BE et Gestion_Anemometre
+
+[33mcommit 630ccbfd4165dfa6d7640a6be4cf794be23c459b[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Oct 20 20:11:49 2024 +0200
+
+    Delete Projet_BE/BE.vhd
+
+[33mcommit 258d5bffed3b4ffe31d9f36e6490e8a86b2000a2[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:23:23 2024 +0200
+
+    Create README.md
+
+[33mcommit 3b06eda59462b1bc8b2846798df2dddcd82152db[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:14:43 2024 +0200
+
+    Add files via upload
+
+[33mcommit 53448cc8f3ec18053f68f96cbf5ff8410ad35dca[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:10:28 2024 +0200
+
+    Delete decodeur.vhd
+
+[33mcommit 6f460f4c7bd0c44e27a5b9b94ae8e087cbd9a5a2[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:10:21 2024 +0200
+
+    Delete decodeur.vhd.bak
+
+[33mcommit 732d2a54bfd38824f550c431b314daad9d77c41c[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:10:10 2024 +0200
+
+    Delete diviseur.vhd
+
+[33mcommit 049d82e2aa21108e61f87c11b8ba62984b074bac[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:09:56 2024 +0200
+
+    Delete projet1tp.asm.rpt
+
+[33mcommit 400e51d54099c38cc0c3720a83b3a3d5effbb418[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:09:47 2024 +0200
+
+    Delete projet1tp.done
+
+[33mcommit 72efd451654656aca2283e35fc9926fa745882d3[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:09:39 2024 +0200
+
+    Delete projet1tp.dpf
+
+[33mcommit e7b9bc153f63e0169a7243dd502e5228f581d176[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:09:31 2024 +0200
+
+    Delete projet1tp.fit.rpt
+
+[33mcommit 2769bec746667a73c0106141e0c4cad14be7b993[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:09:22 2024 +0200
+
+    Delete projet1tp.fit.summary
+
+[33mcommit 49d2866aa4e0fe4bf3698743e50c92c4ddb99836[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:09:14 2024 +0200
+
+    Delete projet1tp.flow.rpt
+
+[33mcommit 6abcc629a5f487c94f51a1253740ad6b01873346[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:09:02 2024 +0200
+
+    Delete projet1tp.map.rpt
+
+[33mcommit 05a2733cff0b602374d49587139cc300cc9a20cd[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:08:51 2024 +0200
+
+    Delete projet1tp.map.summary
+
+[33mcommit edd8edee2465cf386932ea4d501663bf719978d9[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:08:44 2024 +0200
+
+    Delete projet1tp.pin
+
+[33mcommit 66db92a1be4d790c2e36a7954eae0fd6d8dbb153[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:08:36 2024 +0200
+
+    Delete projet1tp.pof
+
+[33mcommit dbe2a7706477b3fc4e6ad90e0e794af85a912585[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:08:27 2024 +0200
+
+    Delete projet1tp.qpf
+
+[33mcommit 3ac4bcf5229c5f5edb000f32c94d0cf85e9136a5[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:08:19 2024 +0200
+
+    Delete projet1tp.qsf
+
+[33mcommit 4623420dcf461e56b822a7dea5873f1e5b24f357[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:08:11 2024 +0200
+
+    Delete projet1tp.qws
+
+[33mcommit bbb27b5af946f4ff0df46fde694bbd7c7c47f421[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:08:02 2024 +0200
+
+    Delete projet1tp.sof
+
+[33mcommit 7666d5c826cb234867fc63c22ed0d508e200b9fb[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:07:51 2024 +0200
+
+    Delete projet1tp.tan.rpt
+
+[33mcommit 2bc841b8f166ba9334c5812d9fd5760cd86fa58c[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:07:41 2024 +0200
+
+    Delete projet1tp.tan.summary
+
+[33mcommit ab1db99927360aacc72d19d33170bb85a64838fa[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:07:33 2024 +0200
+
+    Delete projet1tp_description.txt
+
+[33mcommit a6e50a39f1890b1f95150f782f97c371ff3d70a0[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:07:24 2024 +0200
+
+    Delete toplevel.vhd
+
+[33mcommit d8f1be5d838a89cd1590c15118354a6190e65e0a[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:06:16 2024 +0200
+
+    Delete toplevel.vhd.bak
+
+[33mcommit 35b5264d634af559ab0dcb26e8752e24fffbc6b7[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:05:53 2024 +0200
+
+    Delete compteur.vhd.bak
+
+[33mcommit 69debfd75ba56cf764246eaecc897ad5dd8e2fc0[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:05:38 2024 +0200
+
+    Delete compteur.vhd
+
+[33mcommit b9998b4ba9858449b573997ea43172d9b69002dd[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:04:59 2024 +0200
+
+    Update pwm.vhd
+
+[33mcommit c59c6a4979840a98ddf1c723e353066cb85dfbd5[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:02:56 2024 +0200
+
+    Add files via upload
+
+[33mcommit 98fc4f206f5e291360e9832ac08b4b532613e4db[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:01:24 2024 +0200
+
+    Create datasheet.pdf
+
+[33mcommit e85f12ea11678b0147d573f3701710a1dbcb519a[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 23:00:34 2024 +0200
+
+    Delete docs/Datasheet.pdf
+
+[33mcommit 84ca3a597f5d7679ee18f62ebf18b843df70276a[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:59:58 2024 +0200
+
+    Create BE.vhd
+
+[33mcommit ec1a0977e45f773dcf2545e7301e50af2a2d781d[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:59:27 2024 +0200
+
+    Create pwm.vhd
+
+[33mcommit fe50f2e5e449b21e6a41a93374f2c45c045ca607[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:59:03 2024 +0200
+
+    Create compt.vhd
+
+[33mcommit 0f3c4fcf4a0055e85a4f410186b3322a24ea0970[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:57:59 2024 +0200
+
+    Create Compteur.vhd
+
+[33mcommit e9c13c63dc3f2048c1aa58e23eef349935d1e56e[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:57:08 2024 +0200
+
+    Delete y
+
+[33mcommit d83efca8086049ded5fea7d17a6944a1571dc919[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:56:51 2024 +0200
+
+    Delete Projet_De_BE directory
+
+[33mcommit cd76afd72c191dfb6ecd8e70c2a1df1c6247f76f[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:56:19 2024 +0200
+
+    Create dd.vhd
+
+[33mcommit 077c6f25c53fcdf621f83624673f05cbcc1fd0b7[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:54:51 2024 +0200
+
+    Delete documentation
+
+[33mcommit 00c0fa62a8c90fd29aab2339e557c7c8ea87a6c7[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:53:59 2024 +0200
+
+    Delete Projet_BE
+
+[33mcommit 7c692ce1c8a9a355f7592af7a9543e1189c9e6f6[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:53:46 2024 +0200
+
+    Delete TP_De_Base
+
+[33mcommit a29ead25c120e0f4b807bd4303edea34e82a83b3[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:51:17 2024 +0200
+
+    Create Compteur.vhd
+
+[33mcommit 3ba53db40c0e4d1392d0fd3cfe9a115cc33419ac[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:50:00 2024 +0200
+
+    Create Datasheet.pdf
+
+[33mcommit f42971e49dc5b0056c318e745ac470c5799538ca[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:42:22 2024 +0200
+
+    Create y
+
+[33mcommit 5bd8b79c2d62a3bca10005245a398a9bc8af316d[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:40:36 2024 +0200
+
+    Delete dffs/df/dfdfdf/dffd/dfdf directory
+
+[33mcommit 48cee5e7d125ccd150808ae90b4179f8ccd58e70[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:39:55 2024 +0200
+
+    Create d
+
+[33mcommit 2b6a8ab26a7b3499011ff51023774335ecf94e62[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:37:05 2024 +0200
+
+    Delete TP_de_base/comptage et d'affichage des secondes directory
+
+[33mcommit c02c3822896d6a73a4331e204a13924975f6b5f1[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:36:26 2024 +0200
+
+    Delete f/df directory
+
+[33mcommit 63825a9a865483433efa58bb5daa27ed02867e00[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:35:19 2024 +0200
+
+    Create df.vhd
+
+[33mcommit af94e61f99a1434271cd42dfff6679ac88188012[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:32:29 2024 +0200
+
+    Create Compteur.vhd
+
+[33mcommit 04dd8513e941bf8b71556911edcbec12aeb3407d[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:20:26 2024 +0200
+
+    Create Projet_BE
+
+[33mcommit 6117688467317df330bc9f1eff1c6b6c5ac0a591[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:20:07 2024 +0200
+
+    Create TP_De_Base
+
+[33mcommit e30e86062ad9305a3d7749621885effab362cb7c[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:19:00 2024 +0200
+
+    Create documentation
+
+[33mcommit 81cbd816d90d27d23b930ebe2f0142954dfa49af[m
+Author: BENSUMAIDEA Maged <162569741+maged716g@users.noreply.github.com>
+Date:   Sun Sep 15 22:18:18 2024 +0200
+
+    Delete Docs
+
+[33mcommit 79a13a51b3763528e68ad4613fbc748177cb114a[m
+Author: maged716g <162569741+maged716g@users.noreply.github.com>
+Date:   Fri Sep 13 08:54:08 2024 +0200
+
+    Delete Mini_Projet_Compteur&Afficheur
+
+[33mcommit 869cceb0fde3749768cbaff03561fc46c4f1e37e[m
+Author: maged716g <162569741+maged716g@users.noreply.github.com>
+Date:   Fri Sep 13 08:52:14 2024 +0200
+
+    Create Docs
+
+[33mcommit 4be687d28c451d892caec8968dade5159e33ade6[m
+Author: maged716g <162569741+maged716g@users.noreply.github.com>
+Date:   Fri Sep 13 08:44:53 2024 +0200
+
+    Create Mini_Projet_Compteur&Afficheur
+    
+    Fait partie de TP de Base
+
+[33mcommit d65ff772d11103fa6d142ed7e5751dda8e554f1e[m
+Author: maged716g <162569741+maged716g@users.noreply.github.com>
+Date:   Fri Sep 13 08:42:49 2024 +0200
+
+    Mini_Projet_Compteur&Aficheur
+    
+    Fait une partie de TP de Base
