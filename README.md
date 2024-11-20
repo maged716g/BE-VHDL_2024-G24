@@ -44,10 +44,10 @@ Le design inclut une simulation fonctionnelle et est prêt à être déployé su
 ## Structure du Projet
 Le projet est divisé en deux grandes parties :
 
-1. Le Compteur
+1. **Le Compteur**
 Ce processus incrémente un compteur de 8 bits à chaque cycle d'horloge. Quand il atteint la valeur maximale (255), il revient à zéro. En cas de réinitialisation (reset_n), il est remis à zéro immédiatement.
 
-2. Le Comparateur
+2. **Le Comparateur**
 Ce processus compare en permanence la valeur actuelle du compteur avec le rapport cyclique. En fonction de cette comparaison, il génère le signal PWM :
 
 Haut (1) si la valeur du compteur est inférieure au rapport cyclique.
