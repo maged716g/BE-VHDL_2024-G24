@@ -37,11 +37,11 @@ Réaliser un signal de fréquence 1 Hz à partir de l'horloge de 50 MHz.
 
 
 # PWM (TP de base)
-##Description
+## Description
 Ce projet met en œuvre un générateur de signal PWM écrit en VHDL. Il a été conçu pour produire un signal PWM configurable avec une résolution de 8 bits. L'objectif est de répondre à un cahier des charges typique d’un circuit de modulation de largeur d’impulsion, avec une fréquence et un rapport cyclique prédéfinis.
 
 Le design inclut une simulation fonctionnelle et est prêt à être déployé sur des cartes FPGA comme la DE2 ou la DE0 Nano.
-##Structure du Projet
+## Structure du Projet
 Le projet est divisé en deux grandes parties :
 
 1. Le Compteur
