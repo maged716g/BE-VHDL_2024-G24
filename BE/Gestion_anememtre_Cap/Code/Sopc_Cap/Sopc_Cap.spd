@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="simulation/Sopc_Cap.v" type="VERILOG" />
+ <topLevel name="Sopc_Cap" />
+ <deviceFamily name="cycloneive" />
+ <modelMap
+   controllerPath="Sopc_Cap.onchip_memory2_0"
+   modelPath="Sopc_Cap.onchip_memory2_0" />
+</simPackage>

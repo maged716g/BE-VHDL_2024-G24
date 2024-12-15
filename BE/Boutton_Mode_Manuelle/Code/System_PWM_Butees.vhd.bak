@@ -1,0 +1,48 @@
+-------------------------------- LIBRARIES -----------------------------
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+-------------------------------- ENTITY ---------------------------
+entity System_PWM_Butees is
+    port (
+        clk, Raz_n, Enable_pw : in std_logic;
+        freq, duty : in std_logic_vector(15 downto 0);
+        butee_d, butee_g, angle_barre : in std_logic_vector(11 downto 0);
+        sens : in std_logic;  -- (0=gauche, 1=droite)
+        
+        out_pwm : out std_logic;
+        out_sens : out std_logic
+    );
+end entity;
+
+-------------------------------- ARCHITECTURE ------------------------
+architecture Behavioral of System_PWM_Butees is
+    -- Signaux internes pour la connexion entre PWM et Controle_butees
+    signal pwm_signal : std_logic;
+begin
+
+    -- Instanciation du module PWM
+    PWM_inst : entity work.PWM
+        port map (
+            clk        => clk,
+            Raz_n      => Raz_n,
+            Enable_pw  => Enable_pw,
+            freq       => freq,
+            duty       => duty,
+            pwm        => pwm_signal  -- Sortie du PWM connectée au contrôle des butées
+        );
+
+    -- Instanciation du module Controle_butees
+    Controle_butees_inst : entity work.Controle_butees
+        port map (
+            pwm         => pwm_signal,  -- Connexion de la sortie PWM
+            butee_d     => butee_d,
+            butee_g     => butee_g,
+            angle_barre => angle_barre,
+            sens        => sens,
+            out_pwm     => out_pwm,      -- Sortie du contrôle des butées
+            out_sens    => out_sens      -- Sens de la direction
+        );
+
+end Behavioral;

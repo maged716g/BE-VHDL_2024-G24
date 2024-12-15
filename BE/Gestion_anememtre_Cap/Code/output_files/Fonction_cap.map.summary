@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Mon Nov 18 11:43:42 2024
+Analysis & Synthesis Status : Failed - Sun Dec 15 12:12:48 2024
 Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 Revision Name : Fonction_cap
-Top-level Entity Name : compteur_horaire
+Top-level Entity Name : tb_gestion_compas
 Family : Cyclone IV E
-Total logic elements : 735
-    Total combinational functions : 490
-    Dedicated logic registers : 524
-Total registers : 524
-Total pins : 19
-Total virtual pins : 0
-Total memory bits : 1,664
-Embedded Multiplier 9-bit elements : 0
-Total PLLs : 0
+Total logic elements : N/A until Partition Merge
+    Total combinational functions : N/A until Partition Merge
+    Dedicated logic registers : N/A until Partition Merge
+Total registers : N/A until Partition Merge
+Total pins : N/A until Partition Merge
+Total virtual pins : N/A until Partition Merge
+Total memory bits : N/A until Partition Merge
+Embedded Multiplier 9-bit elements : N/A until Partition Merge
+Total PLLs : N/A until Partition Merge

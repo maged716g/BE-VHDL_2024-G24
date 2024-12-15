@@ -1,0 +1,84 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity tb_Convertisseur_AN is
+    -- Pas de ports pour une entité de testbench
+end entity tb_Convertisseur_AN;
+
+architecture behavior of tb_Convertisseur_AN is
+    -- Composant à tester
+    component Convertisseur_AN
+        port(
+            clk_1M      : in std_logic;
+            Raz_n       : in std_logic;
+            Data_in     : in std_logic;
+            cs_n        : out std_logic;
+            clk_adc     : out std_logic;
+            angle_barre : out std_logic_vector(11 downto 0)
+        );
+    end component;
+
+    -- Signaux pour interconnecter le banc de test et le design
+    signal clk_1M_tb        : std_logic := '0';
+    signal Raz_n_tb         : std_logic := '0';
+    signal Data_in_tb       : std_logic := '0';
+    signal cs_n_tb          : std_logic;
+    signal clk_adc_tb       : std_logic;
+    signal angle_barre_tb   : std_logic_vector(11 downto 0);
+
+    -- Constantes de simulation
+    constant clk_period     : time := 1 us;
+
+begin
+    -- Instanciation du design sous test (DUT)
+    DUT: Convertisseur_AN
+        port map(
+            clk_1M      => clk_1M_tb,
+            Raz_n       => Raz_n_tb,
+            Data_in     => Data_in_tb,
+            cs_n        => cs_n_tb,
+            clk_adc     => clk_adc_tb,
+            angle_barre => angle_barre_tb
+        );
+
+    -- Génération de l'horloge clk_1M (1 MHz)
+    clk_process : process
+    begin
+        while true loop
+            clk_1M_tb <= '0';
+            wait for clk_period / 2;
+            clk_1M_tb <= '1';
+            wait for clk_period / 2;
+        end loop;
+    end process clk_process;
+
+    -- Stimulus de test
+    stimulus: process
+    begin
+        -- Initialisation du reset (Raz_n) à 0
+        Raz_n_tb <= '0';
+        wait for 10 * clk_period;  -- Attendre 10 périodes d'horloge
+
+        -- Relâchement du reset
+        Raz_n_tb <= '1';
+        wait for 10 * clk_period;
+
+        -- Simuler des données d'entrée
+        Data_in_tb <= '1';
+        wait for 2 * clk_period;
+        Data_in_tb <= '0';
+        wait for 2 * clk_period;
+        Data_in_tb <= '1';
+        wait for 2 * clk_period;
+        Data_in_tb <= '1';
+        wait for 2 * clk_period;
+
+        -- Continuer avec d'autres données si nécessaire
+        wait for 100 * clk_period;
+
+        -- Terminer la simulation
+        wait;
+    end process stimulus;
+
+end architecture behavior;

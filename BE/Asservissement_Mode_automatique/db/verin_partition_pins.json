@@ -1,0 +1,81 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "clk_adc",
+					"strict" : false
+				},
+				{
+					"name" : "cs_n",
+					"strict" : false
+				},
+				{
+					"name" : "pwm_out",
+					"strict" : false
+				},
+				{
+					"name" : "sens_out",
+					"strict" : false
+				},
+				{
+					"name" : "ledstby",
+					"strict" : false
+				},
+				{
+					"name" : "ledtribord",
+					"strict" : false
+				},
+				{
+					"name" : "ledbabord",
+					"strict" : false
+				},
+				{
+					"name" : "out_bip",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "data_in_adc",
+					"strict" : false
+				},
+				{
+					"name" : "bp_babord",
+					"strict" : false
+				},
+				{
+					"name" : "bp_tribord",
+					"strict" : false
+				},
+				{
+					"name" : "bp_stby",
+					"strict" : false
+				},
+				{
+					"name" : "in_pwm_compas",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

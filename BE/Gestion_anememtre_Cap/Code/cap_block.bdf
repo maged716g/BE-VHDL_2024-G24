@@ -1,0 +1,101 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "graphic" (version "1.4"))
+(pin
+	(input)
+	(rect 424 440 592 456)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "clk" (rect 5 0 19 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 344 440 400 464))
+)
+(pin
+	(input)
+	(rect 440 400 616 416)
+	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
+	(text "in_pwm_compas" (rect 5 0 85 17)(font "Intel Clear" ))
+	(pt 176 8)
+	(drawing
+		(line (pt 92 12)(pt 117 12))
+		(line (pt 92 4)(pt 117 4))
+		(line (pt 121 8)(pt 176 8))
+		(line (pt 92 12)(pt 92 4))
+		(line (pt 117 4)(pt 121 8))
+		(line (pt 117 12)(pt 121 8))
+	)
+	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 352 400 416 424))
+)
+(symbol
+	(rect 656 336 1296 480)
+	(text "Sopc_Cap" (rect 290 -1 360 15)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 128 25 140)(font "Arial" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "avalon_cap_0_in_pwm_compas_beginbursttransfer" (rect 0 0 297 14)(font "Arial" (font_size 8)))
+		(text "avalon_cap_0_in_pwm_compas_beginbursttransfer" (rect 4 61 301 75)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 272 72))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "clk_clk" (rect 0 0 37 14)(font "Arial" (font_size 8)))
+		(text "clk_clk" (rect 4 101 41 115)(font "Arial" (font_size 8)))
+		(line (pt 0 112)(pt 272 112))
+	)
+	(drawing
+		(text "avalon_cap_0_in_pwm_compas" (rect 86 43 298 58)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "beginbursttransfer" (rect 277 67 366 79)(font "Arial" (color 0 0 0)))
+		(text "clk" (rect 257 83 274 98)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 277 107 291 119)(font "Arial" (color 0 0 0)))
+		(text " Sopc_Cap " (rect 593 128 650 140)(font "Arial" ))
+		(line (pt 272 32)(pt 368 32))
+		(line (pt 368 32)(pt 368 128))
+		(line (pt 272 128)(pt 368 128))
+		(line (pt 272 32)(pt 272 128))
+		(line (pt 273 52)(pt 273 76))
+		(line (pt 274 52)(pt 274 76))
+		(line (pt 273 92)(pt 273 116))
+		(line (pt 274 92)(pt 274 116))
+		(line (pt 0 0)(pt 640 0))
+		(line (pt 640 0)(pt 640 144))
+		(line (pt 0 144)(pt 640 144))
+		(line (pt 0 0)(pt 0 144))
+	)
+)
+(connector
+	(pt 616 408)
+	(pt 656 408)
+)
+(connector
+	(pt 656 448)
+	(pt 592 448)
+)

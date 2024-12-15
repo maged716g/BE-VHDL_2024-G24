@@ -1,0 +1,103 @@
+-------------------------------- LIBRARIES -----------------------------
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+-------------------------------- ENTITY ---------------------------
+entity tb_System_PWM_Butees is
+end entity;
+
+-------------------------------- ARCHITECTURE ------------------------
+architecture Behavioral of tb_System_PWM_Butees is
+
+    -- Déclaration des signaux pour les stimuli
+    signal clk        : std_logic := '0';
+    signal Raz_n      : std_logic := '0';
+    signal Enable_pw  : std_logic := '0';
+    signal freq       : std_logic_vector(15 downto 0) := (others => '0');
+    signal duty       : std_logic_vector(15 downto 0) := (others => '0');
+    signal butee_d    : std_logic_vector(11 downto 0) := (others => '0');
+    signal butee_g    : std_logic_vector(11 downto 0) := (others => '0');
+    signal angle_barre: std_logic_vector(11 downto 0) := (others => '0');
+    signal sens       : std_logic := '0';  -- 0=gauche, 1=droite
+
+    -- Sorties du DUT (Device Under Test)
+    signal out_pwm    : std_logic;
+    signal out_sens   : std_logic;
+
+    -- Période de l'horloge
+    constant clk_period : time := 20 ns;
+
+begin
+
+    -- Instanciation du DUT (Device Under Test)
+    DUT: entity work.System_PWM_Butees
+        port map (
+            clk         => clk,
+            Raz_n       => Raz_n,
+            Enable_pw   => Enable_pw,
+            freq        => freq,
+            duty        => duty,
+            butee_d     => butee_d,
+            butee_g     => butee_g,
+            angle_barre => angle_barre,
+            sens        => sens,
+            out_pwm     => out_pwm,
+            out_sens    => out_sens
+        );
+
+    -- Génération de l'horloge
+    clk_process : process
+    begin
+        while true loop
+            clk <= '0';
+            wait for clk_period / 2;
+            clk <= '1';
+            wait for clk_period / 2;
+        end loop;
+    end process;
+
+    -- Processus de simulation des stimuli
+    stim_proc : process
+    begin
+
+        -- Initialisation
+        Raz_n <= '0';
+        Enable_pw <= '0';
+        freq <= x"1388";   -- Fréquence 5000 (exemple)
+        duty <= x"0A00";   -- Rapport cyclique 40%
+        butee_d <= x"0800";   -- Butee droite (exemple)
+        butee_g <= x"0100";   -- Butee gauche (exemple)
+        angle_barre <= x"0400"; -- Position actuelle au milieu
+        sens <= '0';       -- Sens gauche (0)
+
+        -- Appliquer un reset
+        wait for 100 ns;
+        Raz_n <= '1';      -- Fin du reset
+
+        -- Activer le signal PWM
+        Enable_pw <= '1';
+        wait for 200 ns;
+
+        -- Test de la butée gauche (angle_barre <= butee_g)
+        angle_barre <= x"0080"; -- L'angle atteint la butée gauche
+        wait for 200 ns;
+
+        -- Test de la butée droite (angle_barre >= butee_d)
+        sens <= '1';             -- Changer de direction (droite)
+        angle_barre <= x"0900";  -- L'angle dépasse la butée droite
+        wait for 200 ns;
+
+        -- Simulation sans atteindre les butées
+        angle_barre <= x"0500";  -- L'angle est dans une position normale
+        wait for 200 ns;
+
+        -- Désactiver PWM
+        Enable_pw <= '0';
+        wait for 200 ns;
+
+        -- Fin de simulation
+        wait;
+    end process;
+
+end Behavioral;

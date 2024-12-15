@@ -1,0 +1,26 @@
+-- **********************************************************
+--                      LIBRARIES
+-- **********************************************************
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+-- **********************************************************
+--                       ENTITY
+-- **********************************************************
+entity top_PWM_Butee_ADC is
+    port (
+        clk           : in  std_logic;                    
+        Raz_n         : in  std_logic;                  
+        Enable_pw     : in  std_logic;                    
+        freq_pwm      : in  std_logic_vector(15 downto 0); 
+        duty_pwm      : in  std_logic_vector(15 downto 0); 
+        butee_d       : in  std_logic_vector(11 downto 0); 
+        butee_g       : in  std_logic_vector(11 downto 0); 
+        sens_pwm      : in  std_logic;                   
+        Data_in_adc   : in  std_logic;                   
+        pwm_out       : out std_logic;                   
+        sens_out      : out std_logic                    
+    );
+end entity;
+

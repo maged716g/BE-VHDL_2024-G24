@@ -1,0 +1,79 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+
+entity tb_PWM is
+end tb_PWM;
+
+architecture behavior of tb_PWM is
+
+    component PWM
+        port (
+            clk : in std_logic;
+            Raz_n : in std_logic;
+            Enable_pw : in std_logic;
+            freq : in std_logic_vector (15 downto 0);
+            duty : in std_logic_vector (15 downto 0);
+            pwm : out std_logic
+        );
+    end component;
+
+ 
+    signal clk_tb : std_logic := '0';
+    signal Raz_n_tb : std_logic := '1';
+    signal Enable_pw_tb : std_logic := '1';
+    signal freq_tb : std_logic_vector(15 downto 0) := (others => '0');
+    signal duty_tb : std_logic_vector(15 downto 0) := (others => '0');
+    signal pwm_tb : std_logic;
+
+    
+    constant clk_period : time := 20 ns;
+
+begin
+
+    
+    uut: PWM
+        port map (
+            clk => clk_tb,
+            Raz_n => Raz_n_tb,
+            Enable_pw => Enable_pw_tb,
+            freq => freq_tb,
+            duty => duty_tb,
+            pwm => pwm_tb
+        );
+
+    clk_process : process
+    begin
+        clk_tb <= '0';
+        wait for clk_period / 2;
+        clk_tb <= '1';
+        wait for clk_period / 2;
+    end process;
+
+    stim_proc: process
+    begin
+    
+        Raz_n_tb <= '0';
+        wait for 20 ns;
+        Raz_n_tb <= '1';
+        
+        -- Test 1 : Fréquence de 1000, rapport cyclique (duty cycle) à 500
+        freq_tb <= "0000001111101000";  -- 1000
+        duty_tb <= "0000000111110100";  -- 500
+        wait for 1000 ns;  -- On laisse le système tourner pendant 1000 ns
+
+        -- Test 2 : Modifier le rapport cyclique à 750 (75% de la période)
+        duty_tb <= "0000001011101110";  -- 750
+        wait for 1000 ns;
+
+        -- Test 3 : Fréquence de 2000, rapport cyclique à 1000 (50%)
+        freq_tb <= "0000011111010000";  -- 2000
+        duty_tb <= "0000001111101000";  -- 1000
+        wait for 1000 ns;
+
+       
+        wait for 100000 ns;  -- Attendre longtemps avant d'arrêter
+    end process;
+
+end behavior;
